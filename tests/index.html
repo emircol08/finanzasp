@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Pruebas · Mesada</title>
+<style>body{font:15px/1.5 system-ui,sans-serif;max-width:760px;margin:24px auto;padding:0 16px}li.ok{color:#047857}li.bad{color:#b91c1c}</style></head>
+<body><h1>Pruebas de cálculos</h1><p id="s">Ejecutando…</p><ul id="r"></ul>
+<script type="module">
+import { summary } from './core.test.js';
+const s = summary();
+document.getElementById('s').textContent = `${s.passed}/${s.total} pruebas correctas`;
+document.getElementById('r').innerHTML = s.results.map(r => `<li class="${r.ok ? 'ok' : 'bad'}">${r.ok ? '✓' : '✗'} ${r.name}${r.ok ? '' : ' — ' + r.error}</li>`).join('');
+</script></body></html>
